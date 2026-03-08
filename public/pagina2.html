@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nuestra Historia</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+    *{
+      font-family: "Didact Gothic", sans-serif;
+      background: linear-gradient(to bottom right, #f6efe8, #eaddcf); /* Fondo con un degradado suave */
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Estilo del contenedor principal de la historia */
+    .historia {
+      max-width: 1000px; /* Limita el ancho máximo */
+      margin: 0 auto; /* Centra el contenido horizontalmente */
+      padding: 80px 20px 140px; /* Espacio extra abajo para el botón */
+      position: relative; /* Para posicionar elementos relativos dentro */
+    }
+
+    /* Estilo del título de la historia */
+    .historia h2 {
+      text-align: center; /* Centra el texto */
+      font-size: 2.8rem; /* Tamaño grande para el título */
+      margin-bottom: 60px; /* Espacio debajo del título */
+      color: #a67c52; /* Color del título */
+    }
+
+    /* Estilo de la línea central que divide los eventos */
+    .linea {
+      position: absolute; /* Posiciona la línea de manera absoluta */
+      left: 50%; /* Centra la línea en el medio */
+      top: 0; 
+      bottom: 0;
+      width: 4px; /* Ancho de la línea */
+      background: #a67c52; /* Color de la línea */
+      transform: translateX(-50%); /* Alinea la línea al centro */
+    }
+
+    /* Estilo para los eventos */
+    .evento {
+      display: flex; /* Usa flexbox para organizar los eventos */
+      justify-content: flex-start; /* Alinea los eventos a la izquierda */
+      align-items: center; /* Centra verticalmente los elementos */
+      margin: 60px 0; /* Espacio entre los eventos */
+      position: relative; /* Para el posicionamiento de pseudo-elementos */
+      opacity: 0; /* Inicialmente el evento es invisible */
+      transform: translateY(40px); /* Inicialmente desplazado hacia abajo */
+      transition: all 0.8s ease; /* Efecto de transición para animación */
+    }
+
+    /* Cuando el evento se hace visible */
+    .evento.visible {
+      opacity: 1; /* Hace el evento visible */
+      transform: translateY(0); /* Lo posiciona en su lugar original */
+    }
+
+    /* Estilo para los eventos de posición par (cuando el evento es de tipo 'even') */
+    .evento:nth-child(even) {
+      flex-direction: row-reverse; /* Cambia la dirección de los elementos */
+    }
+
+    /* Pseudo-elemento que genera el círculo para los eventos */
+    .evento::before {
+      content: ""; /* No hay contenido textual, solo se usa para el estilo */
+      position: absolute; /* Posiciona el círculo de manera absoluta */
+      left: 50%; /* Lo coloca en el centro horizontal */
+      transform: translateX(-50%); /* Ajusta para centrarlo */
+      width: 20px; /* Tamaño del círculo */
+      height: 20px; /* Tamaño del círculo */
+      background: white; /* Color de fondo del círculo */
+      border: 3px solid #a67c52; /* Borde de color marrón claro */
+      border-radius: 50%; /* Forma circular */
+      z-index: 1; /* Coloca el círculo por encima de otros elementos */
+    }
+
+    /* Estilo para los textos dentro de los eventos */
+    .texto {
+      width: 45%; /* Ancho del cuadro de texto */
+      padding: 25px; /* Relleno interno */
+      background: white; /* Fondo blanco */
+      border-radius: 14px; /* Bordes redondeados */
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1); /* Sombra suave para dar profundidad */
+    }
+
+    /* Estilo para los subtítulos dentro del texto de los eventos */
+    .texto h3 {
+      margin-top: 0; /* Elimina el margen superior */
+      color: #8c6239; /* Color del subtítulo */
+      font-size: 1.3rem; /* Tamaño del subtítulo */
+    }
+
+    /* Estilo para los párrafos dentro de los eventos */
+    .texto p {
+      margin: 10px 0 0; /* Márgenes del párrafo */
+      line-height: 1.6; /* Espaciado entre líneas */
+    }
+
+    /* Estilo del botón "Siguiente" */
+    .btn-next {
+      display: inline-block; /* Hace que el botón sea un bloque en línea */
+      background: #a67c52; /* Color de fondo */
+      color: white; /* Color del texto */
+      text-decoration: none; /* Elimina el subrayado del enlace */
+      padding: 25px 45px; /* Tamaño del botón */
+      border-radius: 30px; /* Bordes redondeados */
+      font-size: 1.3rem; /* Tamaño de la fuente */
+      margin-top: 40px; /* Espacio arriba del botón */
+      transition: background 0.3s ease, transform 0.2s ease; /* Efecto de transición */
+    }
+
+    /* Efecto hover del botón "Siguiente" */
+    .btn-next:hover {
+      background: #8c6239; /* Cambio de color al pasar el mouse */
+      transform: scale(1.05); /* Aumenta ligeramente el tamaño del botón */
+    }
+
+    /* Contenedor para el botón al final de la historia */
+    .boton-contenedor {
+      position: absolute; /* Posiciona el contenedor de manera absoluta */
+      bottom: 40px; /* Distancia desde el fondo */
+      left: 50%; /* Centra horizontalmente */
+      transform: translateX(-50%); /* Ajusta para centrarlo */
+      text-align: center; /* Centra el texto dentro del contenedor */
+    }
+</style>
+
+</head>
+<body>
+
+  <section class="historia">
+    <h2>Nuestra Historia 💕</h2>
+    <div class="linea"></div>
+
+    <div class="evento">
+
+      <div class="texto">
+        <h3>2017 · El Destino Nos Cruzó</h3>
+        <p>Todo comenzó con una simple coincidencia: un grupo de amigos en común, una tarde cualquiera, y una sonrisa que lo cambió todo.</p>
+      </div>
+
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2018 · Primer Encuentro</h3>
+        <p>En aquel café del centro, entre nervios y risas, descubrimos que teníamos más en común de lo que imaginábamos.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2019 · La Primera Aventura</h3>
+        <p>Un viaje improvisado a la playa se convirtió en uno de nuestros recuerdos más hermosos: arena en los pies y promesas en el corazón.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2020 · Juntos en Todo</h3>
+        <p>La vida nos puso a prueba, pero aprendimos que juntos somos más fuertes. Cada día fue una oportunidad para crecer como pareja.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2022 · Nuestro Hogar</h3>
+        <p>Decidimos dar un gran paso: nuestro primer hogar. Un lugar lleno de amor, risas y sueños compartidos.</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2024 · El Sí Más Importante</h3>
+        <p>Bajo las estrellas, con el corazón latiendo más fuerte que nunca, llegó la pregunta... y la respuesta que lo cambió todo: ¡Sí, quiero!</p>
+      </div>
+    </div>
+
+    <div class="evento">
+      <div class="texto">
+        <h3>2025 · El Gran Día</h3>
+        <p>Hoy celebramos no solo una boda, sino la promesa de toda una vida juntos. Y queremos que seas parte de este capítulo inolvidable.</p>
+      </div>
+    </div>
+
+    <!-- Botón siguiente -->
+    <div class="boton-contenedor">
+      <a href="pagina3.html" target="contenido" class="btn-next">💍 Ver detalles</a>
+    </div>
+  </section>
+
+  <script>
+    // Animaciones al hacer scroll
+    const eventos = document.querySelectorAll('.evento');
+
+    function mostrarEventos() {
+      const trigger = window.innerHeight * 0.8; 
+      eventos.forEach(evento => {
+        const top = evento.getBoundingClientRect().top;
+        if (top < trigger) {
+          evento.classList.add('visible');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', mostrarEventos);
+    mostrarEventos();
+  </script>
+
+</body>
+</html>

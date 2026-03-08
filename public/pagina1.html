@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación Boda</title>
+  <style>
+    /* 🌸 Estilo general */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      color: #e0e0e0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* 💍 Portada */
+    .portada {
+      min-height: 100vh;
+      background: url('assets/img/imagenes_regalos/hero.webp') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+      overflow: hidden;
+      padding: 0 20px;
+    }
+
+    .portada::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .contenido {
+      position: relative;
+      z-index: 1;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 800px;
+    }
+
+    /* ✨ Título */
+    .contenido h1 {
+      font-size: 4rem;
+      margin: 0 0 auto;
+      letter-spacing: 3px;
+    }
+
+    /* 💞 Subtítulos */
+    .contenido p {
+      font-size: 1.5rem;
+      margin: 10px auto;
+    }
+
+    /* 🕒 Contador */
+    .contador {
+      font-size: 2.5rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    /* 🌿 Botón */
+    .btn-next {
+      margin: 30px auto;
+      display: inline-block;
+      padding: 20px 40px;
+      background: linear-gradient(135deg, #ceb08f, #6e451b);
+      color: #fffaf3;
+      border-radius: 30px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 10px rgba(166, 124, 82, 0.3);
+    }
+
+    .btn-next:hover {
+      background: linear-gradient(135deg, #63401e, #6d3e18);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 6px 14px rgba(140, 98, 57, 0.4);
+    }
+
+    .btn-next:active {
+      transform: scale(0.97);
+    }
+
+    /* 🌷 Animación */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* 📱 RESPONSIVIDAD */
+    @media (max-width: 768px) {
+      .contenido h1 {
+        font-size: 3rem;
+      }
+      .contenido p {
+        font-size: 1.2rem;
+      }
+      .contador {
+        font-size: 2rem;
+      }
+      .btn-next {
+        font-size: 1rem;
+        padding: 12px 25px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .contenido h1 {
+        font-size: 2.4rem;
+      }
+      .contenido p {
+        font-size: 1.1rem;
+      }
+      .contador {
+        font-size: 1.8rem;
+      }
+      .btn-next {
+        font-size: 0.95rem;
+        padding: 10px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- 🌸 SECCIÓN PORTADA -->
+  <section class="portada" id="portada">
+    <div class="contenido">
+
+      <h1>¡Nos Casamos!</h1>
+      <p>María y Juan</p>
+      <p>12 de Diciembre, 2025</p>
+      <div class="contador" id="contador"></div>
+      <a href="pagina2.html" class="btn-next">Ver más</a>
+
+    </div>
+  </section>
+
+  <script>
+    // === Contador hasta la boda 💍 ===
+    const contador = document.getElementById("contador");
+    const fechaBoda = new Date("Dec 12, 2035 16:00:00").getTime();
+
+    function actualizarContador() {
+      const ahora = new Date().getTime();
+      const diferencia = fechaBoda - ahora;
+
+      if (diferencia <= 0) {
+        contador.innerHTML = "¡Hoy es el gran día! 🎉💍";
+        return;
+      }
+
+      const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+      contador.innerHTML = `${dias} días ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    setInterval(actualizarContador, 1000);
+    actualizarContador();
+  </script>
+</body>
+</html>

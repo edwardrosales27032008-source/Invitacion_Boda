@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmación de Asistencia</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+    *{
+      font-family: "Didact Gothic", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: bisque;
+    }
+
+    h2 { font-size: 2.2rem; margin: 20px auto 4px; text-align: center; }
+    p { max-width: 100vw; margin: 6px auto 18px; line-height:1.5; text-align: center;}
+
+    form {
+      background: rgba(255,255,255,0.95);
+      padding: 18px 18px;
+      border-radius: 14px;
+      box-shadow: 0 25px 30px rgba(0,0,0,0.08);
+      max-width: 100vw;
+      width: 80%;
+      margin: auto;
+      margin-bottom: 24px;
+    }
+
+    label { display:block; text-align:left; margin-top:10px; color:#3d2f21; font-weight:600; }
+    input, select, textarea {
+      width: 96%;
+      padding: 10px 12px;
+      margin-top:6px;
+      border: 1px solid #c7b29a;
+      border-radius: 8px;
+      background: #fffaf3;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+    textarea { resize:vertical; min-height:70px; max-height:150px; }
+
+    button[type="submit"] {
+      margin-top:14px;
+      background: #a67c52;
+      color:white;
+      border:none;
+      padding:10px 18px;
+      border-radius:20px;
+      cursor:pointer;
+      font-size:1rem;
+    }
+    button[type="submit"]:hover { background:#8c6239; transform:translateY(-1px); }
+
+    .invitados {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 20px;
+      padding: 12px 14px;
+      max-width: 100vw;
+      width: 60%;
+      box-shadow: 10px 15px 30px 10px rgba(0,0,0,0.06);
+      margin: 0px auto 30px;
+    }
+
+    .invitados h3 { margin:0 0 10px; color:#5a4635; }
+    .contador-invitados { display:inline-block; background:#a67c52; color:white; padding:6px 10px; border-radius:16px; font-size:0.9rem; margin-bottom:8px; }
+    .info-mesas { margin-top:8px; color:#5a4635; font-size:0.95rem; }
+
+    ul { list-style:none; padding:0; margin:12px 0 0; }
+    li { background:#fffaf3; margin:8px 0; padding:10px 12px; border-radius:10px; display:flex; align-items:center; justify-content:space-between; gap:10px; box-shadow:0 2px 6px rgba(0,0,0,0.04); font-size:0.95rem; }
+    .left { text-align:left; }
+    .mesa-asignada { background:#a67c52; color:white; padding:6px 10px; border-radius:12px; font-weight:700; font-size:0.85rem; margin-left:8px; }
+    .acciones { display:flex; gap:8px; align-items:center; }
+
+    .btn-eliminar {
+      background:#e45757; color:white; border:none; padding:6px 10px; border-radius:10px; cursor:pointer; font-size:0.85rem;
+    }
+    .btn-eliminar:hover { 
+      background:#c03b3b; transform:translateY(-1px); }
+
+    .btn-next {
+      max-width: 100vw;
+      width: 30%;
+      text-align: center;
+      margin: 20px auto;
+      font-size: 1.3rem; 
+      display: block; 
+      padding:25px 40px;
+      background:#a67c52;
+      color:white; 
+      border-radius:18px; 
+      text-decoration:none;
+    }
+
+    .btn-next:hover {
+      background-color: #5a4635;
+    }
+
+    /* responsive */
+    @media (max-width:600px){
+      form { padding:14px; }
+      li { flex-direction:column; align-items:flex-start; }
+      .acciones { width:100%; justify-content:flex-end; }
+    }
+
+    @media (max-width: 361px) {
+      .btn-next {
+        width: 60vw;
+        padding: 15px 30px;
+      }
+    }
+
+  </style>
+</head>
+<body>
+
+  <h2>Confirma tu Asistencia 💌</h2>
+  <p>Tu presencia hará de este día algo aún más especial. Por favor, confirma si podrás acompañarnos.</p>
+
+  <form id="rsvpForm" autocomplete="off">
+
+    <label for="nombre">Nombre completo</label>
+    <input type="text" id="nombre" name="nombre" required placeholder="Ej: Ana Pérez" />
+
+    <label for="asistencia">¿Podrás asistir?</label>
+    <select id="asistencia" name="asistencia" required>
+      <option value="">Selecciona una opción</option>
+      <option value="Sí">Sí, con mucho gusto</option>
+      <option value="No">No podré asistir</option>
+    </select>
+
+    <label for="acompanante">¿Vendrás con acompañante?</label>
+    <select id="acompanante" name="acompanante">
+      <option value="">Selecciona una opción</option>
+      <option value="No">No</option>
+      <option value="Sí">Sí</option>
+    </select>
+
+
+    <button type="submit">Enviar Confirmación</button>
+
+  </form>
+
+  <div class="invitados">
+    <h3>Invitados Confirmados</h3>
+    <div class="contador-invitados">Total confirmados: <span id="totalInvitados">0</span></div>
+    <div class="info-mesas">Mesas asignadas: <span id="mesasUsadas">0</span>/20</div>
+    <ul id="listaInvitados"></ul>
+  </div>
+
+  <a class="btn-next" href="regalos.html">Ver Lista de Regalos</a>
+
+<script>
+/* ======= datos y persistencia ======= */
+let listaInvitados = [];
+const TOTAL_MESAS = 20;
+const STORAGE_KEY = 'listaInvitadosBoda_v1';
+
+/* cargar desde localStorage (si existe) */
+function cargarInvitados() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      listaInvitados = JSON.parse(raw);
+      if (!Array.isArray(listaInvitados)) listaInvitados = [];
+    } else {
+      // ejemplo inicial opcional; puedes dejarlo vacío
+      listaInvitados = [
+        { nombre: "María Fernández", acompanante: "Sí", mesa: 3, mensaje: "" },
+        { nombre: "José Ramírez", acompanante: "No", mesa: 7, mensaje: "" }
+      ];
+      guardarInvitados();
+    }
+  } catch(e) {
+    console.error("Error leyendo localStorage:", e);
+    listaInvitados = [];
+  }
+  actualizarListaInvitados();
+}
+
+/* guardar en localStorage */
+function guardarInvitados() {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(listaInvitados));
+  } catch(e) {
+    console.error("Error guardando en localStorage:", e);
+  }
+}
+
+/* ======= asignación de mesa simple (sin repetir) ======= */
+function asignarMesa() {
+  const ocupadas = listaInvitados.map(i => i.mesa);
+  for (let i = 1; i <= TOTAL_MESAS; i++) {
+    if (!ocupadas.includes(i)) return i;
+  }
+  // si todas ocupadas, asigna la mesa con menos personas
+  const personasPorMesa = {};
+  for (let i=1;i<=TOTAL_MESAS;i++) personasPorMesa[i]=0;
+  listaInvitados.forEach(inv => {
+    personasPorMesa[inv.mesa] += 1 + (inv.acompanante === "Sí" ? 1 : 0);
+  });
+  let minMesa = 1, minVal = personasPorMesa[1];
+  for (let i=2;i<=TOTAL_MESAS;i++){
+    if (personasPorMesa[i] < minVal){ minVal = personasPorMesa[i]; minMesa = i; }
+  }
+  return minMesa;
+}
+
+/* ======= render / UI ======= */
+function actualizarListaInvitados() {
+  const ul = document.getElementById('listaInvitados');
+  ul.innerHTML = '';
+  let totalPersonas = 0;
+  const mesasSet = new Set();
+
+  listaInvitados.forEach((inv, idx) => {
+    const li = document.createElement('li');
+
+    const left = document.createElement('div');
+    left.className = 'left';
+    const acompanText = inv.acompanante === 'Sí' ? ' +1' : '';
+    left.innerHTML = `<strong>${escapeHtml(inv.nombre)}</strong>${acompanText}
+                      <div style="font-size:0.9rem;color:#76593f;margin-top:4px;">${escapeHtml(inv.mensaje || '')}</div>`;
+
+    const acciones = document.createElement('div');
+    acciones.className = 'acciones';
+    const mesaSpan = document.createElement('span');
+    mesaSpan.className = 'mesa-asignada';
+    mesaSpan.textContent = 'Mesa ' + inv.mesa;
+
+    const btnEliminar = document.createElement('button');
+    btnEliminar.className = 'btn-eliminar';
+    btnEliminar.textContent = 'Eliminar';
+    btnEliminar.title = 'Eliminar confirmación';
+    btnEliminar.addEventListener('click', () => eliminarInvitado(idx));
+
+    acciones.appendChild(mesaSpan);
+    acciones.appendChild(btnEliminar);
+
+    li.appendChild(left);
+    li.appendChild(acciones);
+    ul.appendChild(li);
+
+    totalPersonas += 1 + (inv.acompanante === 'Sí' ? 1 : 0);
+    mesasSet.add(inv.mesa);
+  });
+
+  document.getElementById('totalInvitados').textContent = totalPersonas;
+  document.getElementById('mesasUsadas').textContent = mesasSet.size;
+}
+
+/* eliminar invitado por índice */
+function eliminarInvitado(index) {
+  if (!Number.isInteger(index) || index < 0 || index >= listaInvitados.length) return;
+  const nombre = listaInvitados[index].nombre;
+  if (!confirm(`Eliminar la confirmación de "${nombre}"?`)) return;
+  listaInvitados.splice(index,1);
+  guardarInvitados();
+  actualizarListaInvitados();
+}
+
+/* helper para evitar XSS al insertar texto */
+function escapeHtml(str){
+  if(!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+/* ======= manejo del formulario ======= */
+document.getElementById('rsvpForm').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const nombreEl = document.getElementById('nombre');
+  const asistenciaEl = document.getElementById('asistencia');
+  const acompananteEl = document.getElementById('acompanante');
+  const mensajeEl = document.getElementById('mensaje');
+
+  const nombre = nombreEl.value.trim();
+  const asistencia = asistenciaEl.value;
+  const acompanante = acompananteEl.value || 'No';
+  const mensaje = (mensajeEl && mensajeEl.value) ? mensajeEl.value.trim() : '';
+
+  if (!nombre) { alert('Por favor escribe tu nombre.'); nombreEl.focus(); return; }
+  if (asistencia !== 'Sí') {
+    alert('Gracias por avisar. Lamentamos que no puedas venir 💌');
+    this.reset();
+    return;
+  }
+
+  // verificar duplicado por nombre (case-insensitive)
+  const existe = listaInvitados.some(inv => inv.nombre.toLowerCase() === nombre.toLowerCase());
+  if (existe) {
+    if (!confirm('Este nombre ya está registrado. ¿Deseas crear otra entrada con el mismo nombre?')) {
+      return;
+    }
+  }
+
+  const mesa = asignarMesa();
+  const nuevo = { nombre, acompanante, mensaje, mesa };
+  listaInvitados.push(nuevo);
+  guardarInvitados();
+  actualizarListaInvitados();
+
+  // feedback simple
+  alert(`¡Confirmado! Te asignamos a la Mesa ${mesa}. Gracias 😊`);
+  this.reset();
+});
+
+/* cargar al inicio */
+document.addEventListener('DOMContentLoaded', cargarInvitados);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Programa del Día</title>
+  <style>
+    /* Estilo general del body */
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+    *{
+      font-family: "Didact Gothic", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: bisque;
+    }
+
+    /* Estilo del contenedor principal de la sección 'programa' */
+    .programa {
+      max-width: 70%; /* Ancho máximo de la sección */
+      margin: 0 auto; /* Centra el contenido */
+      padding: 80px 20px; /* Espaciado superior e inferior */
+    }
+
+    /* Estilo del título de la sección 'programa' */
+    .programa h2 {
+      text-align: center; /* Centra el texto */
+      font-size: 2.8rem; /* Tamaño grande para el título */
+      color: #8c5e34; /* Color marrón claro */
+      margin-bottom: 50px; /* Espacio debajo del título */
+    }
+
+    /* Estilo de la línea de tiempo */
+    .timeline {
+      position: relative; /* Posiciona la línea de tiempo de manera relativa */
+      margin: 40px 0; /* Espaciado arriba y abajo de la línea de tiempo */
+      padding-left: 40px; /* Espacio en el lado izquierdo para la línea vertical */
+    }
+
+    /* Línea vertical de la línea de tiempo */
+    .timeline::before {
+      content: ""; /* No tiene contenido textual, solo estilo */
+      position: absolute; /* Posiciona la línea vertical absolutamente */
+      top: 0; /* Empieza desde la parte superior */
+      left: 20px; /* Desplazamiento desde la izquierda */
+      width: 3px; /* Ancho de la línea */
+      height: 100%; /* Ocupa toda la altura disponible */
+      background: #c8a57b; /* Color marrón para la línea */
+      border-radius: 3px; /* Bordes redondeados para la línea */
+    }
+
+    /* Estilo de cada evento dentro de la línea de tiempo */
+    .evento {
+      position: relative; /* Posiciona cada evento de manera relativa */
+      margin-bottom: 40px; /* Espaciado entre eventos */
+      padding-left: 30px; /* Espacio en la izquierda para el círculo */
+
+    }
+
+    /* Círculo indicador de cada evento */
+    .evento::before {
+      content: ""; /* No tiene contenido textual, solo estilo */
+      position: absolute; /* Posiciona el círculo de manera absoluta */
+      left: -5px; /* Desplazamiento del círculo hacia la izquierda */
+      top: 5px; /* Desplazamiento hacia abajo */
+      width: 14px; /* Tamaño del círculo */
+      height: 14px; /* Tamaño del círculo */
+      background: #a67c52; /* Color marrón para el círculo */
+      border-radius: 50%; /* Forma circular */
+      box-shadow: 0 0 0 4px #fdf6ef; /* Sombra alrededor del círculo */
+    }
+
+    /* Estilo para la hora de cada evento */
+    .hora {
+      font-weight: bold; /* Texto en negrita */
+      color: #7b5633; /* Color marrón para la hora */
+      margin-bottom: 8px; /* Espacio debajo de la hora */
+      font-size: 1.1rem; /* Tamaño de fuente ligeramente mayor para la hora */
+    }
+
+    /* Estilo para el título de cada evento */
+    .titulo {
+      font-size: 1.4rem; /* Tamaño de fuente grande para el título */
+      color: #513620; /* Color marrón oscuro para el título */
+      margin-bottom: 5px; /* Espacio debajo del título */
+    }
+
+    /* Estilo para la descripción de cada evento */
+    .descripcion {
+      font-size: 1rem; /* Tamaño de fuente normal para la descripción */
+      color: #5e4a3a; /* Color marrón claro para la descripción */
+      line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+    }
+
+    /* Estilo de la nota final */
+    .nota {
+      margin-top: 60px; /* Espacio arriba de la nota */
+      background: #fff8ef; /* Fondo amarillo claro para la nota */
+      border-left: 5px solid #a67c52; /* Borde izquierdo distintivo */
+      padding: 25px; /* Relleno interno de la nota */
+      border-radius: 10px; /* Bordes redondeados para la nota */
+      font-style: italic; /* Estilo de fuente cursiva */
+      color: #5b3f26; /* Color oscuro para el texto */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Sombra suave alrededor de la nota */
+    }
+
+    /* Estilo del botón 'Siguiente' */
+    .btn-next {
+      display: block; /* Hace que el botón ocupe el 100% del ancho disponible */
+      width: fit-content; /* Hace que el botón se ajuste al contenido */
+      margin: 50px auto 0; /* Centra el botón con márgenes superiores e inferiores */
+      padding: 20px 45px; /* Tamaño del botón */
+      background: #a67c52; /* Color de fondo marrón claro */
+      color: white; /* Color del texto blanco */
+      border-radius: 25px; /* Bordes redondeados para el botón */
+      text-decoration: none; /* Elimina el subrayado si es un enlace */
+      font-size: 1.5 rem; /* Tamaño de la fuente */
+      transition: background 0.3s ease, transform 0.2s ease; /* Transición suave para los efectos */
+    }
+
+    /* Efecto hover para el botón 'Siguiente' */
+    .btn-next:hover {
+      background: #8c6239; /* Cambio de color de fondo en hover */
+      transform: scale(1.05); /* Agranda ligeramente el botón */
+    }
+</style>
+
+</head>
+<body>
+
+  <section class="programa">
+
+    <h2>Programa del Día 🕊️</h2>
+
+    <div class="timeline">
+
+      <div class="evento">
+
+        <div class="hora">3:30 PM</div>
+        <div class="titulo">Llegada de los Invitados</div>
+        <div class="descripcion">Recepción con música suave y bebidas refrescantes en los jardines de la hacienda.</div>
+
+      </div>
+
+      <div class="evento">
+        <div class="hora">4:00 PM</div>
+        <div class="titulo">Ceremonia</div>
+        <div class="descripcion">Intercambio de votos bajo el arco floral, acompañado de música en vivo.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">5:00 PM</div>
+        <div class="titulo">Sesión de Fotos</div>
+        <div class="descripcion">Capturaremos los momentos más hermosos junto a nuestros seres queridos.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">8:00 PM</div>
+        <div class="titulo">Cena y Brindis</div>
+        <div class="descripcion">Disfrutaremos una cena especial al aire libre, seguida de brindis y palabras de amor.</div>
+      </div>
+
+      <div class="evento">
+        <div class="hora">10:00 PM</div>
+        <div class="titulo">Baile y Fiesta</div>
+        <div class="descripcion">La pista se abre con nuestro primer baile, y la noche continúa con música, risas y celebración.</div>
+      </div>
+    </div>
+
+    <div class="nota">
+      💫 Sugerencia: Lleva zapatos cómodos y prepárate para disfrutar una noche mágica bajo las estrellas.
+    </div>
+
+    <a href="asistencia.html" class="btn-next">Siguiente ➜</a>
+  </section>
+
+</body>
+</html>

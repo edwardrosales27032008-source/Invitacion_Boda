@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Gracias por Acompañarnos</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+    * {
+      box-sizing: border-box;
+      padding: 0;
+      margin: 0;
+      font-family: "Didact Gothic", sans-serif;
+    }
+
+    body {
+      background-color: bisque;
+    }
+
+/* 🏷️ TITULOS Y TEXTOS */
+h1 {
+  font-size: 3rem;
+  text-align: center;
+  color: #4b3b2b;
+  margin: 35px auto 0px;
+}
+
+p {
+  font-size: 1.3rem;
+  max-width: 700px;
+  line-height: 1.4;
+  margin: 10px auto 40px auto;
+}
+
+.frase {
+  font-style: italic;
+  font-size: 1.4rem;
+  color: #6e4c2f;
+  margin-bottom: 40px;
+}
+
+/* 🖼️ GALERÍA */
+.galeria {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  max-width: 100vw;
+  width: 80%;
+  margin: 30px auto;
+  gap: 2rem;
+}
+
+.foto1 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.foto1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.foto1:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.2);
+}
+
+.foto2 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.foto2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.foto2:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.2);
+}
+
+.foto3 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+
+.foto3 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 3/4;
+  grid-row: 1/2;
+}
+
+.foto3:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.2);
+}
+
+.foto4 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.foto4 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 1/2;
+  grid-row: 2/3
+}
+
+.foto4:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.2);
+}
+
+.foto5 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.foto5 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.foto5:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.2);
+}
+
+.foto6 {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+.foto6 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+.foto6:hover {
+  transform: scale(1.05);
+  box-shadow: 0 15px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* 💌 SECCIÓN DE MENSAJES */
+.mensajes {
+  background: linear-gradient(180deg, #f3efe4, #ffe4c9);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  max-width: 700px;
+  width: 90%;
+  margin: 50px auto;
+  padding: 25px 30px;
+  text-align: left;
+  color: #70573c;
+}
+
+.mensajes h2 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #6e4c2f;
+}
+
+.mensajes h2::before {
+  content: "💌";
+  font-size: 1.3rem;
+}
+
+.mensajes textarea {
+  width: 100%;
+  height: 30%;
+  border: 2px solid #d6b997;
+  border-radius: 15px;
+  padding: 15px;
+  font-size: 1rem;
+  resize: none;
+  background-color: #fffdfb;
+  color: #3b2b1a;
+}
+
+.mensajes textarea:focus {
+  outline: none;
+  border-color: #a67c52;
+  box-shadow: 0 0 6px rgba(166, 124, 82, 0.4);
+}
+
+.mensajes .btn-agregar {
+  background: #a67c52;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  float: right;
+  margin-top: 10px;
+}
+
+.mensajes .btn-agregar:hover {
+  background: #8c6239;
+  transform: scale(1.05);
+}
+
+/* 📱 RESPONSIVE DESIGN */
+
+/* Tablets */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.3rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    max-width: 90%;
+  }
+
+  .frase {
+    font-size: 1.3rem;
+  }
+
+  .galeria {
+    gap: 20px;
+  }
+
+  .btn-volver {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    margin: 40px 10%;
+  }
+}
+
+/* Celulares */
+@media (max-width: 600px) {
+  body {
+    padding: 25px 15px;
+  }
+
+  h1 {
+    font-size: 1.9rem;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .frase {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  .galeria {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .foto img {
+    aspect-ratio: 4/3;
+  }
+
+  .mensajes {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .mensajes textarea {
+    height: 100px;
+    font-size: 0.95rem;
+  }
+
+  .mensajes .boton-guardar {
+    width: 100%;
+    float: none;
+    margin-top: 15px;
+  }
+
+  .btn-volver {
+    font-size: 1.3rem;
+    padding: 35px 40px;
+  }
+}
+
+
+/* 🌸 BOTÓN GUARDAR MENSAJE */
+.mensajes .boton-guardar {
+  background: linear-gradient(135deg, #b68a5c, #a67c52);
+  color: #fffaf3;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(166, 124, 82, 0.3);
+  display: inline-block;
+}
+
+.mensajes .boton-guardar:hover {
+  background: linear-gradient(135deg, #a67c52, #8c6239);
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 14px rgba(140, 98, 57, 0.4);
+}
+
+.mensajes .boton-guardar:active {
+  transform: scale(0.98);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* 💍 BOTÓN VOLVER */
+.btn-volver {
+  margin: 30px auto;
+  padding: 12px 30px;
+  background: linear-gradient(135deg, #a67c52, #8c6239);
+  border-radius: 30px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(140, 98, 57, 0.35);
+  text-align: center;
+  width: 20vw;
+}
+
+.btn-volver a{
+  text-decoration: none;
+  color: #ffe4c8;
+}
+
+.btn-volver:hover {
+  background: linear-gradient(135deg, #b68a5c, #a67c52);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 6px 15px rgba(140, 98, 57, 0.4);
+}
+
+.btn-volver:active {
+  transform: scale(0.97);
+}
+
+</style>
+
+</head>
+<body>
+    <header>
+      <h1>Gracias por ser parte de nuestro día especial 🤍</h1>
+      <p>No hay palabras suficientes para expresar lo felices que estamos de compartir este momento contigo.</p>
+      <p class="frase">“El amor no mira con los ojos, sino con el alma.” — William Shakespeare</p>
+    </header>
+
+    <section class="galeria" aria-label="Galería de fotos">
+      <div class="foto1"><img src="assets/img/imagenesboda/foto_novios.jpg" alt="Foto de los novios"></div>
+      <div class="foto2"><img src="assets/img/imagenesboda/fotodefamilia.jpg" alt="Foto de familia"></div>
+      <div class="foto3"><img src="assets/img/imagenesboda/recepcion.jpg" alt="Recepciones"></div>
+      <div class="foto4"><img src="assets/img/imagenesboda/sala_recepcion.jpg" alt="Recepción"></div>
+      <div class="foto5"><img src="assets/img/imagenesboda/momentos_especiales.jpg" alt="Momentos especiales"></div>
+      <div class="foto6"><img src="assets/img/imagenesboda/sala_recepcion2.jpg" alt="Recepción"></div>
+    </section>
+
+    <!-- ===== SECCIÓN MENSAJES ===== -->
+    <section class="mensajes" aria-labelledby="mensajesTitle">
+
+      <div class="mensajes-head">
+        <h2 id="mensajesTitle">💌 Deja tu mensaje</h2>
+        <div class="contador-mensajes" id="contadorMensajes">0 mensajes</div>
+      </div>
+
+      <textarea id="nuevoMensaje" rows="4" placeholder="Escribe aquí tu mensaje... (máx. 500 caracteres)" maxlength="500" aria-label="Texto del mensaje"></textarea>
+
+      <div class="row">
+        <div style="flex:1;text-align:left;color:#7b6250;font-size:0.95rem;">
+          <strong>Consejo:</strong> usa un saludo y tu nombre para que sepamos quién escribió 💕
+        </div>
+
+        <button class="btn-agregar" id="btnAgregar">Guardar mensaje</button>
+      </div>
+
+      <ul id="listaMensajes" class="lista-mensajes" aria-live="polite"></ul>
+
+    </section>
+
+    <div class="btn-volver">
+    <a href="pagina1.html">Volver al inicio</a>
+    </div>
+
+  <script>
+    // Mensajes: guardar/editar/eliminar en localStorage
+    const listaEl = document.getElementById('listaMensajes');
+    const txt = document.getElementById('nuevoMensaje');
+    const contadorEl = document.getElementById('contadorMensajes');
+    const btnAgregar = document.getElementById('btnAgregar');
+
+    let mensajes = JSON.parse(localStorage.getItem('mensajes_amora')) || [];
+
+    function actualizarContador(){
+      const n = mensajes.length;
+      contadorEl.textContent = n + (n === 1 ? ' mensaje' : ' mensajes');
+    }
+
+    function mostrarMensajes(){
+      listaEl.innerHTML = '';
+      if(mensajes.length === 0){
+        listaEl.innerHTML = '<li style="color:#7b6250; text-align:left; padding:8px 4px;">Aún no hay mensajes, sé el primero en dejar uno 💌</li>';
+        actualizarContador();
+        return;
+      }
+      mensajes.forEach((m, i) => {
+        const li = document.createElement('li');
+        li.className = 'mensaje';
+        // Fecha pequeña (opcional): mostrar cuando se guardó
+        const meta = new Date(m.fecha).toLocaleString();
+        li.innerHTML = `
+          <div style="flex:1;">
+            <div class="meta">${meta}</div>
+            <div class="texto">${escapeHtml(m.texto)}</div>
+          </div>
+          <div class="acciones" role="group" aria-label="Acciones mensaje ${i+1}">
+            <button class="editar" onclick="editarMensaje(${i})" title="Editar mensaje">Editar</button>
+            <button class="eliminar" onclick="eliminarMensaje(${i})" title="Eliminar mensaje">Eliminar</button>
+          </div>
+        `;
+        listaEl.appendChild(li);
+      });
+      actualizarContador();
+    }
+
+    // escapar HTML simple para evitar inyección
+    function escapeHtml(str){
+      return String(str)
+        .replace(/&/g,'&amp;')
+        .replace(/</g,'&lt;')
+        .replace(/>/g,'&gt;')
+        .replace(/"/g,'&quot;')
+        .replace(/'/g,'&#039;')
+        .replace(/\n/g,'<br>');
+    }
+
+    function guardarStorage(){
+      localStorage.setItem('mensajes_amora', JSON.stringify(mensajes));
+    }
+
+    function agregarMensaje(){
+      const valor = txt.value.trim();
+      if(!valor){
+        txt.focus();
+        return alert('Escribe un mensaje antes de guardar.');
+      }
+      // Limitar longitud por seguridad (ya hay maxlength pero doble protección)
+      if(valor.length > 500) return alert('Mensaje muy largo (máx 500 caracteres).');
+
+      mensajes.unshift({ texto: valor, fecha: Date.now() }); // push al inicio para ver los más recientes arriba
+      guardarStorage();
+      txt.value = '';
+      mostrarMensajes();
+      // dar foco y small animación
+      txt.focus();
+    }
+
+    function eliminarMensaje(index){
+      if(!confirm('¿Eliminar este mensaje? Esta acción no se puede deshacer.')) return;
+      mensajes.splice(index,1);
+      guardarStorage();
+      mostrarMensajes();
+    }
+
+    function editarMensaje(index){
+      const actual = mensajes[index].texto;
+      const nuevo = prompt('Edita tu mensaje:', actual);
+      if(nuevo === null) return; // canceló
+      if(nuevo.trim() === '') return alert('El mensaje no puede quedar vacío.');
+      mensajes[index].texto = nuevo.trim();
+      mensajes[index].fecha = Date.now(); // actualizar fecha de edición
+      guardarStorage();
+      mostrarMensajes();
+    }
+
+    // Enviar con botones y Ctrl+Enter
+    btnAgregar.addEventListener('click', agregarMensaje);
+    txt.addEventListener('keydown', (e)=>{
+      if(e.key === 'Enter' && (e.ctrlKey || e.metaKey)){ // Ctrl+Enter o ⌘+Enter
+        agregarMensaje();
+      }
+    });
+
+    // Inicializar
+    mostrarMensajes();
+    // accesibilidad: colocar focus en textarea al cargar para invitar a escribir
+    window.addEventListener('load', ()=>{ txt.setAttribute('aria-label','Campo para escribir mensaje'); });
+
+  </script>
+</body>
+</html>

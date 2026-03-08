@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Código de Vestimenta</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+    *{
+      font-family: "Didact Gothic", sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: bisque;
+    }
+
+    /* Estilo del encabezado principal */
+    h1 {
+      font-size: 2.4rem; /* Tamaño del texto */
+      margin: 30px auto;
+      color: #4b3b2b; /* Color del título */
+      text-align: center;
+    }
+
+    /* Estilo de los párrafos */
+    p {
+      font-size: 1.3rem; /* Tamaño de la fuente */
+      max-width: 100vw;
+      line-height: 1.3; /* Espaciado entre líneas */
+      width: 70%;
+      margin: auto;
+      }
+
+    /* Estilo del contenedor de elementos en cuadrícula */
+    .vestimenta {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: 20px;
+      width: 80%;
+      max-width: 100vw;
+      margin: 20px auto 120px;
+    }
+
+    /* Estilo de las tarjetas HOMBRE*/
+    .tarjetaV {
+      background: rgba(218, 181, 134, 0.85); /* Fondo semitransparente */
+      border-radius: 20px;
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+      grid-column: 1/2;
+      grid-row: 1/2;
+      height: 1000px;
+    }
+
+    /* Efecto al pasar el mouse sobre las tarjetas */
+    .tarjetaV:hover {
+      transform: translateY(-5px); /* Eleva la tarjeta */
+      box-shadow: 0 20px 25px rgba(0,0,0,0.15); /* Sombra más profunda */
+    }
+
+    /* Estilo de las imágenes dentro de las tarjetas */
+    .tarjetaV img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+      margin-bottom: 20px;
+    }
+
+
+    /* Estilo de las tarjetas DAMAS*/
+    .tarjetaD {
+      background: rgba(218, 181, 134, 0.85); /* Fondo semitransparente */
+      border-radius: 20px;
+      padding: 25px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efecto de transición */
+      grid-column: 2/3;
+      grid-row: 1/2;
+      height: 1000px;
+    }
+
+    /* Efecto al pasar el mouse sobre las tarjetas */
+    .tarjetaD:hover {
+      transform: translateY(-5px); /* Eleva la tarjeta */
+      box-shadow: 0 20px 25px rgba(0,0,0,0.15); /* Sombra más profunda */
+    }
+
+    /* Estilo de las imágenes dentro de las tarjetas */
+    .tarjetaD img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+      margin-bottom: 20px;
+    }
+
+    /* Estilo de los subtítulos */
+    h2 {
+      font-size: 1.8rem;
+      color: #5b3e28;
+      margin-bottom: 10px;
+    }
+
+    /* Estilo de las listas */
+    ul {
+      list-style: none; /* Elimina los puntos de las listas */
+      padding: 0;
+      margin: 0;
+      text-align: left; /* Alineación a la izquierda */
+    }
+
+    /* Estilo de los elementos de la lista */
+    li {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px; /* Espacio a la izquierda */
+    }
+
+    /* Estilo para los puntos de la lista */
+    li::before {
+      content: "•";
+      color: #a67c52; /* Color de los puntos */
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    /* Estilo de las notas */
+    .nota {
+      font-style: italic;
+      color: #5b4636;
+      font-size: 1.1rem;
+      max-width: 90%;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    /* Estilo del botón de "volver" */
+    .btn-volver {
+      display: block;
+      width: 20vw;
+      text-align: center;
+      margin: 30px auto;
+      padding: 25px 40px;
+      background: #a67c52;
+      color: white;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 1.3rem;
+      transition: background 0.3s ease, transform 0.2s ease; /* Transición suave */
+    }
+
+    /* Efecto hover del botón */
+    .btn-volver:hover {
+      background: #8c6239;
+      transform: scale(1.05); /* Agranda ligeramente el botón */
+    }
+
+    @media (max-width: 700px) {
+
+      h1{
+        flex-wrap: wrap;
+      }
+
+      .vestimenta {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+
+      .tarjetaV {
+        grid-column: 1/1;
+        grid-row: 1/2;
+      }
+
+      .tarjetaD {
+        grid-column: 1/1;
+        grid-row: 2/3;
+      }
+
+          /* Estilo de los subtítulos */
+    h2 {
+      font-size: 1.2rem;
+    }
+
+    /* Estilo de las notas */
+    .nota {
+      font-size: 1rem;
+      max-width: 90%;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .btn-volver {
+      text-align: center;
+      width: 30vw;
+    }
+    }
+
+    @media (max-width: 361px) {
+      .btn-volver {
+        width: 50vw;
+      }
+    }
+
+</style>
+
+</head>
+<body>
+
+  <h1>Código de Vestimenta</h1>
+  <p>
+    Queremos que te sientas cómodo y elegante al mismo tiempo.  
+    Aquí te dejamos una guía para vestir acorde a la ocasión 💫
+  </p>
+
+  <div class="vestimenta">
+
+    <div class="tarjetaV">
+      <img src="assets/img/imagenesboda/codvestimentaV.jpg" alt="Código de vestimenta hombre">
+      <h2>Caballeros</h2>
+      <ul>
+        <li>Traje formal en tonos oscuros o neutros.</li>
+        <li>Camisa blanca o pastel.</li>
+        <li>Corbata o moño opcional, pero elegante.</li>
+        <li>Zapatos de vestir negros o marrones.</li>
+        <li>Evitar jeans, zapatillas deportivas o polos.</li>
+      </ul>
+    </div>
+
+    <div class="tarjetaD">
+      <img src="assets/img/imagenesboda/codvestimentaD.jpg" alt="Código de vestimenta mujer">
+      <h2>Damas</h2>
+      <ul>
+        <li>Vestido largo o midi en tonos suaves o pasteles.</li>
+        <li>Maquillaje natural y peinado elegante.</li>
+        <li>Tacones o sandalias finas.</li>
+        <li>Accesorios discretos y elegantes.</li>
+        <li>Evitar el color blanco (reservado para la novia 🤍).</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <p class="nota">
+    🌿 El evento será al aire libre, así que te recomendamos llevar algo ligero pero sofisticado.
+  </p>
+
+    <a href="pagina7.html" class="btn-volver">Siguiente</a>
+
+</body>
+</html>

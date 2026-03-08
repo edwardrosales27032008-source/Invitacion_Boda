@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Detalles del Evento</title>
+ <style>
+    @import url('https://fonts.googleapis.com/css2?family=Didact+Gothic&display=swap');
+
+    *{
+      font-family: "Didact Gothic", sans-serif;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: bisque;
+    }
+
+    /* Estilo del contenedor de detalles */
+    .detalles {
+      max-width: 90%; /* Limita el ancho máximo */
+      margin: 0 auto; /* Centra el contenido */
+      padding: 80px 20px 60px; /* Espacio antes del botón */
+      text-align: center; /* Centra el texto */
+      flex: 1; /* Permite que el contenedor crezca para llenar el espacio disponible */
+    }
+
+    /* Estilo del título dentro de detalles */
+    .detalles h2 {
+      font-size: 2.8rem; /* Tamaño grande para el título */
+      color: #8c5e34; /* Color marrón para el título */
+      margin-bottom: 40px; /* Espacio debajo del título */
+      letter-spacing: 1px; /* Espaciado entre las letras */
+    }
+
+    /* Estilo del contenedor de tarjetas */
+    .tarjetas {
+      display: flex; /* Usa flexbox para organizar las tarjetas */
+      flex-wrap: wrap; /* Permite que las tarjetas se ajusten cuando no hay suficiente espacio */
+      justify-content: center; /* Centra las tarjetas */
+      gap: 30px; /* Espacio entre las tarjetas */
+    }
+
+    /* Estilo de cada tarjeta */
+    .tarjeta {
+      background: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente */
+      border-radius: 18px; /* Bordes redondeados */
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1); /* Sombra suave */
+      padding: 30px; /* Relleno interno */
+      width: 280px; /* Ancho fijo de la tarjeta */
+      transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el mouse */
+      border: 3px solid rgba(166, 124, 82, 0.2); /* Borde suave y ligero */
+    }
+
+    /* Efecto hover de la tarjeta */
+    .tarjeta:hover {
+      transform: translateY(-8px); /* Desplaza la tarjeta hacia arriba */
+      box-shadow: 0 25px 20px rgba(0,0,0,0.15); /* Aumenta la sombra */
+    }
+
+    /* Estilo del título dentro de cada tarjeta */
+    .tarjeta h3 {
+      color: #a67c52; /* Color para el subtítulo de la tarjeta */
+      margin-bottom: 12px; /* Espacio debajo del título */
+      font-size: 1.4rem; /* Tamaño de la fuente */
+    }
+
+    /* Estilo del párrafo dentro de las tarjetas */
+    .tarjeta p {
+      line-height: 1.6; /* Espaciado entre líneas */
+      font-size: 1rem; /* Tamaño de la fuente */
+    }
+
+    /* Estilo del mapa embebido */
+    .mapa {
+      margin-top: 60px; /* Espacio por encima del mapa */
+      border-radius: 20px; /* Bordes redondeados */
+      overflow: hidden; /* Elimina el desbordamiento de elementos */
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Sombra suave alrededor del mapa */
+    }
+
+    /* Estilo del iframe del mapa */
+    iframe {
+      width: 100%; /* Hace que el iframe ocupe todo el ancho disponible */
+      height: 420px; /* Altura fija para el mapa */
+      border: none; /* Elimina el borde del iframe */
+    }
+
+    /* Estilo de las notas especiales */
+    .nota {
+      margin-top: 50px; /* Espacio encima de las notas */
+      background: rgba(255, 248, 236, 0.95); /* Fondo suave y claro */
+      border-left: 9px solid #a67c52; /* Borde izquierdo distintivo */
+      padding: 25px 50px; /* Relleno interno */
+      font-style: italic; /* Estilo cursiva */
+      color: #5e4327; /* Color del texto de la nota */
+      border-radius: 12px; /* Bordes redondeados */
+      font-size: 1.1rem; /* Tamaño de la fuente */
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1); /* Sombra suave alrededor de la nota */
+    }
+
+    /* Estilo del botón 'Siguiente' */
+    .btn-next {
+      display: inline-block; /* Hace que el botón sea un bloque en línea */
+      background: #a67c52; /* Color de fondo del botón */
+      color: white; /* Color del texto */
+      text-decoration: none; /* Elimina el subrayado */
+      padding: 20px 40px; /* Tamaño del botón */
+      border-radius: 30px; /* Bordes redondeados */
+      font-size: 1.3rem; /* Tamaño de la fuente */
+      margin-bottom: 20px; /* Espacio por encima del botón */
+      transition: background 0.3s ease, transform 0.2s ease; /* Transición suave */
+    }
+
+    /* Efecto hover para el botón 'Siguiente' */
+    .btn-next:hover {
+      background: #8c6239; /* Cambio de color de fondo */
+      transform: scale(1.05); /* Aumenta el tamaño ligeramente */
+    }
+
+    /* Estilo para el contenedor del botón 'Siguiente' */
+    .boton-contenedor {
+      text-align: center; /* Centra el botón */
+      margin: 40px 0 60px; /* Espacio alrededor del contenedor */
+    }
+</style>
+
+</head>
+<body>
+
+  <section class="detalles">
+
+    <h2>Detalles del Evento ✨</h2>
+
+    <div class="tarjetas">
+
+      <div class="tarjeta">
+        <h3>📅 Fecha</h3>
+        <p>12 de Diciembre, 2025</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>🕓 Hora</h3>
+        <p>Ceremonia: 4:00 PM</p>
+        <p>Recepción: 6:00 PM</p>
+      </div>
+
+      <div class="tarjeta">
+        <h3>📍 Lugar</h3>
+        <p>Hacienda Los Álamos</p>
+        <p>Av. del Sol 321, Lima, Perú</p>
+      </div>
+
+    </div>
+
+    <div class="mapa">
+     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3899.0605095256524!2d-76.88926242580645!3d-12.244182245606149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105bc44f954941d%3A0x4b5844296161316a!2sHacienda%20Los%20Alamos%20de%20Pachac%C3%A1mac!5e0!3m2!1ses!2spe!4v1759630153265!5m2!1ses!2spe" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="nota">
+      🌿 Te recomendamos llegar 20 minutos antes para disfrutar la ceremonia con calma.  
+      Habrá estacionamiento y servicio de transporte desde el hotel central.
+    </div>
+
+  </section>
+
+  <!-- Botón siguiente centrado al final -->
+  <div class="boton-contenedor">
+    <a href="pagina4.html" target="contenido" class="btn-next">🕐Programa</a>
+  </div>
+
+</body>
+</html>
